@@ -4,10 +4,12 @@ describe('Warehouse', function() {
   const Warehouse = require('../src/Warehouse');
   let warehouse;
   let crate;
+  let crate2;
 
   beforeEach(function() {
     warehouse = new Warehouse();
-    crate = jasmine.createSpyObj('crate', ['update']);
+    crate = jasmine.createSpyObj('crate', ['update', 'location']);
+    crate2 = jasmine.createSpyObj('crate', ['update', 'location']);
   })
 
   it('has dimensions', function() {
@@ -34,5 +36,10 @@ describe('Warehouse', function() {
   it('will note receive a crate if alreadu in crates array', function() {
     warehouse.receive(crate, 0, 0)
     expect(warehouse.receive(crate, 0, 1)).toEqual('Crate already in warehouse.')
+  })
+
+  it('will not receive crate in same location as existing one', function() {
+    warehouse.receive(crate, 0, 0)
+    expect(warehouse.receive(crate2, 0, 0)).toEqual('Position occupied.')
   })
 })
