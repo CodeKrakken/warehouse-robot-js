@@ -25,4 +25,9 @@ describe('Warehouse', function() {
   it('can receive a crate', function() {
     expect(warehouse.receive(crate)).toEqual([crate])
   })
+
+  it('adds location to crate when received', function() {
+    warehouse.receive(crate, 0, 0)
+    expect(crate.update).toHaveBeenCalled()
+  })
 })

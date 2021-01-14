@@ -3,7 +3,8 @@ function Warehouse() {
   this.crates = [];
 }
 
-Warehouse.prototype.receive = function(crate) {
+Warehouse.prototype.receive = function(crate, xAxis, yAxis) {
+  crate.update([xAxis, yAxis])
   this.crates.push(crate)
   return this.crates
 }
