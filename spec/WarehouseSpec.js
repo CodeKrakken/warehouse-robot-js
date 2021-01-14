@@ -11,4 +11,8 @@ describe('Warehouse', function() {
   it('has dimensions', function() {
     expect(warehouse.dimensions).toBeDefined();
   })
+
+  it('can contain crates', function() {
+    expect(warehouse.crates).toBeDefined();
+  })
 })
