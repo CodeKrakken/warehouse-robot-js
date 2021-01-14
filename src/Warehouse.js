@@ -4,6 +4,9 @@ function Warehouse() {
 }
 
 Warehouse.prototype.receive = function(crate, xAxis, yAxis) {
+  if(this.crates.includes(crate)) {
+    return 'Crate already in warehouse.' 
+  }
   crate.update([xAxis, yAxis])
   this.crates.push(crate)
   return this.crates

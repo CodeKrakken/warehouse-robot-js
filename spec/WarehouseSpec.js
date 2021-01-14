@@ -30,4 +30,9 @@ describe('Warehouse', function() {
     warehouse.receive(crate, 0, 0)
     expect(crate.update).toHaveBeenCalled()
   })
+
+  it('will note receive a crate if alreadu in crates array', function() {
+    warehouse.receive(crate, 0, 0)
+    expect(warehouse.receive(crate, 0, 1)).toEqual('Crate already in warehouse.')
+  })
 })
