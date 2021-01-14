@@ -1,4 +1,8 @@
-function Crate() {  
+'use strict';
+
+function Crate() {
+
+  this.location = [];
 }
 
 module.exports = Crate;
