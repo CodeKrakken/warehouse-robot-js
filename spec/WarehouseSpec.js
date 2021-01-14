@@ -15,4 +15,8 @@ describe('Warehouse', function() {
   it('can contain crates', function() {
     expect(warehouse.crates).toBeDefined();
   })
+
+  it('responds to receive', function() {
+    expect(warehouse.receive).toBeDefined()
+  })
 })

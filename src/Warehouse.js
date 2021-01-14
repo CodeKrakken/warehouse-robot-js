@@ -3,4 +3,8 @@ function Warehouse() {
   this.crates = [];
 }
 
+Warehouse.prototype.receive = function(crate) {
+  
+}
+
 module.exports = Warehouse;
