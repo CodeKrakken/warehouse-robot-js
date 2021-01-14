@@ -4,7 +4,8 @@ function Warehouse() {
 }
 
 Warehouse.prototype.receive = function(crate) {
-  
+  this.crates.push(crate)
+  return this.crates
 }
 
 module.exports = Warehouse;

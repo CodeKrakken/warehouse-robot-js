@@ -3,9 +3,11 @@
 describe('Warehouse', function() {
   const Warehouse = require('../src/Warehouse');
   let warehouse;
+  let crate;
 
   beforeEach(function() {
     warehouse = new Warehouse();
+    crate = jasmine.createSpyObj('crate', ['update']);
   })
 
   it('has dimensions', function() {
@@ -18,5 +20,9 @@ describe('Warehouse', function() {
 
   it('responds to receive', function() {
     expect(warehouse.receive).toBeDefined()
+  })
+
+  it('can receive a crate', function() {
+    expect(warehouse.receive(crate)).toEqual([crate])
   })
 })
