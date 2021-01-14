@@ -1,8 +1,8 @@
 'use strict';
 
 describe("Crate", function() {
-  var Crate = require('../src/Crate');
-  var crate;
+  const Crate = require('../src/Crate');
+  let crate;
 
   beforeEach(function() {
     crate = new Crate();
