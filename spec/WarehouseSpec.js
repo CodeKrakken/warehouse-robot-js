@@ -8,8 +8,10 @@ describe('Warehouse', function() {
 
   beforeEach(function() {
     warehouse = new Warehouse();
-    crate = jasmine.createSpyObj('crate', ['update', 'location']);
-    crate2 = jasmine.createSpyObj('crate', ['update', 'location'])
+    crate = jasmine.createSpyObj('crate', ['update']);
+    crate2 = jasmine.createSpyObj('crate', ['update'])
+    crate.location = [0,0]
+    crate2.location = [0,0]
   })
 
   it('has dimensions', function() {
