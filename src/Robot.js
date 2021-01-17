@@ -20,16 +20,13 @@ Robot.prototype.instruct = function(instruction) {
       this.try_move(['N','E'])
       break
     case 'NW':
-      this.try_move(['N'])
-      this.try_move(['W'])
+      this.try_move(['N','W'])
       break
     case 'SE':
-      this.try_move(['S'])
-      this.try_move(['E'])
+      this.try_move(['S','E'])
       break
     case 'SW':
-      this.try_move(['S'])
-      this.try_move(['W'])
+      this.try_move(['S','W'])
       break
     default:
       return 'Invalid instruction.'      
