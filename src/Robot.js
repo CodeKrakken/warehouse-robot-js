@@ -3,8 +3,20 @@ function Robot() {
 }
 
 Robot.prototype.instruct = function(instruction) {
-  instruction === 'E' ?
-  this.location[0]++ : this.location[0]--
+  switch(instruction) {
+    case 'E':
+      this.location[0]++
+      break
+    case 'W':
+      this.location[0]--
+      break
+    case 'N':
+      this.location[1]++
+      break
+    default:
+      return 'Invalid instruction.'      
+  }
+  
   return this.location
 }
 
