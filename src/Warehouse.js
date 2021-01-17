@@ -7,21 +7,24 @@ Warehouse.prototype.receive = function(crate, xAxis, yAxis) {
   if(this.crates.includes(crate)) {
     return 'Crate already in warehouse.' 
   }
-  crate.update([xAxis, yAxis])
-  console.log(this.occupied(crate.location))
-  if(this.occupied(crate.location)) {
-    return 'Position occupied.'
+  let response;
+  console.log(this.occupied(xAxis, yAxis))
+  if(this.occupied(xAxis, yAxis)) {
+    response = 'Position occupied.'
+  } else {
+    this.crates.push(crate)
+    crate.update([xAxis, yAxis])
+    response = this.crates
   }
-  this.crates.push(crate)
-  return this.crates
+  return response
 }
 
-Warehouse.prototype.occupied = function(location) {
+Warehouse.prototype.occupied = function(xAxis, yAxis) {
+  let response
   this.crates.forEach(function(crate) {
-    if (crate.location[0] === location[0] && crate.location[1] === location[1]) {
-      return true
-    }
+    response = (crate.location[0] == xAxis && crate.location[1] == yAxis)
   })
+  return response
 }
 
 module.exports = Warehouse;
