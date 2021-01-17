@@ -25,23 +25,12 @@ Robot.prototype.instruct = function(instruction) {
 Robot.prototype.try_move = function(directions) {
   let location = this.location
   directions.forEach(function(direction) {
-    if(['W','E'].includes(direction) && Math.abs(location[0]) < 5) {
-      if(direction === 'E') { location[0]++ }
-      if(direction === 'W') { location[0]-- }
-    }
-    if(['N','S'].includes(direction) && Math.abs(location[1]) < 5) {
-      if(direction === 'N') { location[1]++ }
-      if(direction === 'S') { location[1]-- }
-    }
+    if(direction === 'N' && location[1]+1 <= 5) { location[1]++ }
+    if(direction === 'S' && Math.abs(location[1]-1) <= 5) { location[1]-- }
+    if(direction === 'E' && location[0]+1 <= 5) { location[0]++ }
+    if(direction === 'W' && Math.abs(location[0]-1) <= 5) { location[0]-- }
   })
   
-}
-
-Robot.prototype.move = function(direction, location) {
-  if(direction === 'N') { location[1]++ }
-  if(direction === 'S') { location[1]-- }
-  if(direction === 'E') { location[0]++ }
-  if(direction === 'W') { location[0]-- }
 }
 
 module.exports = Robot;

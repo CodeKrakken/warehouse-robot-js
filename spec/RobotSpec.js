@@ -1,12 +1,16 @@
 'use strict';
 
+const Warehouse = require('../src/Warehouse');
+
 describe('robot', function() {
 
   const Robot = require('../src/Robot');
   let robot;
+  let warehouse;
 
   beforeEach(function() {
-    robot = new Robot();
+    warehouse = new Warehouse;
+    robot = new Robot(warehouse);
   })
   
   it('has a location', function() {
