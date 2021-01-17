@@ -20,6 +20,10 @@ Robot.prototype.instruct = function(instruction) {
       this.location[0]++
       this.location[1]++
       break
+    case 'NW':
+      this.location[0]--
+      this.location[1]++
+      break
     default:
       return 'Invalid instruction.'      
   }
