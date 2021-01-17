@@ -48,4 +48,11 @@ describe('robot', function() {
   it('moves one space northwest when instruct("SW") is called', function() {
     expect(robot.instruct('SW')).toEqual([-1,-1])
   })
+
+  it('will not move outside warehouse north wall', function() {
+    for(let i=0; i < 5; i++) {
+      robot.instruct('N')
+    }
+    expect(robot.instruct('N')).toEqual('Cannot move there.')
+  })
 })
