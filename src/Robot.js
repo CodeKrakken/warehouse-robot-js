@@ -11,7 +11,7 @@ Robot.prototype.instruct = function(instruction) {
       this.location[0]--
       break
     case 'N':
-      this.location[1]++
+      this.try_move(instruction)
       break
     case 'S':
       this.location[1]--
@@ -35,8 +35,13 @@ Robot.prototype.instruct = function(instruction) {
     default:
       return 'Invalid instruction.'      
   }
-  
   return this.location
+}
+
+Robot.prototype.try_move = function(direction) {
+  if(direction === 'N') { 
+    this.location[1]++
+  }
 }
 
 module.exports = Robot;
