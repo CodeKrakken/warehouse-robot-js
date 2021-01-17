@@ -14,42 +14,12 @@ function Robot() {
 
 Robot.prototype.instruct = function(instruction) {
   if(this.directions.includes(instruction)) {
-    let instructions = instruction.split('')
-    console.log(instructions)
+    instructions = instruction.split('')
     this.try_move(instructions)
     return this.location
   } else {
     return 'Invalid instruction.'
-  }
-  // switch(instruction) {
-  //   case 'E':
-  //     this.try_move([instruction])
-  //     break
-  //   case 'W':
-  //     this.try_move([instruction])
-  //     break
-  //   case 'N':
-  //     this.try_move([instruction])
-  //     break
-  //   case 'S':
-  //     this.try_move([instruction])
-  //     break
-  //   case 'NE':
-  //     this.try_move(['N','E'])
-  //     break
-  //   case 'NW':
-  //     this.try_move(['N','W'])
-  //     break
-  //   case 'SE':
-  //     this.try_move(['S','E'])
-  //     break
-  //   case 'SW':
-  //     this.try_move(['S','W'])
-  //     break
-  //   default:
-  //     return 'Invalid instruction.'      
-  // }
-  
+  }  
 }
 
 Robot.prototype.try_move = function(directions) {
