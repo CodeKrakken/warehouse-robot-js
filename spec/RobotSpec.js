@@ -53,6 +53,6 @@ describe('robot', function() {
     for(let i=0; i < 5; i++) {
       robot.instruct('N')
     }
-    expect(robot.instruct('N')).toEqual('Cannot move there.')
+    expect(robot.instruct('N')).toEqual([0,5])
   })
 })

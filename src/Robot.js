@@ -24,7 +24,9 @@ Robot.prototype.instruct = function(instruction) {
 
 Robot.prototype.try_move = function(directions) {
   let location = this.location
-  if(location[1] === 5) { return 'Cannot move there.' } else {
+  if(location[1] === 5) { 
+    return 
+  } else {
     this.move(directions, location)
   }
 }
