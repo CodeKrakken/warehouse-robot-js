@@ -32,4 +32,8 @@ describe('robot', function() {
   it('moves one space south when instruct("S") is called', function() {
     expect(robot.instruct('S')).toEqual([0,-1])
   })
+
+  it('moves one space northeast when instruct("NE") is called', function() {
+    expect(robot.instruct('NE')).toEqual([1,1])
+  })
 })
