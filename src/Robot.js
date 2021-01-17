@@ -5,7 +5,7 @@ function Robot() {
 Robot.prototype.instruct = function(instruction) {
   switch(instruction) {
     case 'E':
-      this.location[0]++
+      this.try_move(instruction)
       break
     case 'W':
       this.location[0]--
@@ -14,7 +14,7 @@ Robot.prototype.instruct = function(instruction) {
       this.try_move(instruction)
       break
     case 'S':
-      this.location[1]--
+      this.try_move(instruction)
       break
     case 'NE':
       this.location[0]++
@@ -39,9 +39,9 @@ Robot.prototype.instruct = function(instruction) {
 }
 
 Robot.prototype.try_move = function(direction) {
-  if(direction === 'N') { 
-    this.location[1]++
-  }
+  if(direction === 'N') { this.location[1]++ }
+  else if(direction === 'S') { this.location[1]-- }
+  else { this.location[0]++ }
 }
 
 module.exports = Robot;
