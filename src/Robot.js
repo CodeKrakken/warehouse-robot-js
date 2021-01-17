@@ -23,7 +23,13 @@ Robot.prototype.instruct = function(instruction) {
 }
 
 Robot.prototype.try_move = function(directions) {
-  let location = this.location 
+  let location = this.location
+  if(location[1] === 5) { return 'Cannot move there.' } else {
+    this.move(directions, location)
+  }
+}
+
+Robot.prototype.move = function(directions, location) {
   directions.forEach(function(direction) {
     if(direction === 'N') { location[1]++ }
     if(direction === 'S') { location[1]-- }
