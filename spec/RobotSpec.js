@@ -55,4 +55,11 @@ describe('robot', function() {
     }
     expect(robot.instruct('N')).toEqual([0,5])
   })
+
+  it('will not move outside warehouse south wall', function() {
+    for(let i=0; i < 5; i++) {
+      robot.instruct('S')
+    }
+    expect(robot.instruct('S')).toEqual([0,-5])
+  })
 })
