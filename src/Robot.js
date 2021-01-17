@@ -25,7 +25,7 @@ Robot.prototype.instruct = function(instruction) {
 Robot.prototype.try_move = function(directions) {
   let location = this.location
   directions.forEach(function(direction) {
-    if(['W','E'].includes(direction) && location[0] < 5) {
+    if(['W','E'].includes(direction) && Math.abs(location[0]) < 5) {
       if(direction === 'E') { location[0]++ }
       if(direction === 'W') { location[0]-- }
     }
