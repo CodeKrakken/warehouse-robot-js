@@ -12,4 +12,8 @@ describe('robot', function() {
   it('has a location', function() {
     expect(robot.location).toBeDefined();
   })
+
+  it('responds to instruct', function() {
+    expect(robot.instruct).toBeDefined();
+  })
 })
