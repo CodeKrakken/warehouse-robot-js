@@ -3,7 +3,8 @@ function Robot() {
 }
 
 Robot.prototype.instruct = function() {
-  
+  this.location[0]++
+  return this.location
 }
 
 module.exports = Robot;
