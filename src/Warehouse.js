@@ -7,16 +7,12 @@ Warehouse.prototype.receive = function(crate, xAxis, yAxis) {
   if(this.crates.includes(crate)) {
     return 'Crate already in warehouse.' 
   }
-  let response;
-  console.log(this.occupied(xAxis, yAxis))
   if(this.occupied(xAxis, yAxis)) {
-    response = 'Position occupied.'
-  } else {
-    this.crates.push(crate)
-    crate.update([xAxis, yAxis])
-    response = this.crates
+    return 'Position occupied.'
   }
-  return response
+  this.crates.push(crate)
+  crate.update([xAxis, yAxis])
+  return this.crates
 }
 
 Warehouse.prototype.occupied = function(xAxis, yAxis) {
