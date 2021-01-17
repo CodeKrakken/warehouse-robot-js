@@ -20,4 +20,8 @@ describe('robot', function() {
   it('moves one space east when instruct("E") is called', function() {
     expect(robot.instruct('E')).toEqual([1,0])
   })
+
+  it('moves one space west when instruct("W") is called', function() {
+    expect(robot.instruct('W')).toEqual([-1,0])
+  })
 })
