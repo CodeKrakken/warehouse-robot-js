@@ -56,6 +56,13 @@ describe('robot', function() {
     expect(robot.instruct('N')).toEqual([0,5])
   })
 
+  it('will not move outside warehouse east wall', function() {
+    for(let i=0; i < 5; i++) {
+      robot.instruct('E')
+    }
+    expect(robot.instruct('E')).toEqual([5,0])
+  })
+
   it('will not move outside warehouse south wall', function() {
     for(let i=0; i < 5; i++) {
       robot.instruct('S')
