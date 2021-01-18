@@ -112,4 +112,8 @@ describe('robot', function() {
     expect(robot.instruct('NW')).toEqual([-5,0])
     expect(robot.instruct('SW')).toEqual([-5,0])
   })
+
+  it('returns an error if given invalid instructions', function() {
+    expect(robot.instruct('Z')).toEqual('Invalid instruction.')
+  })
 })
