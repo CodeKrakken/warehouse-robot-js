@@ -80,4 +80,12 @@ describe('robot', function() {
     }
     expect(robot.instruct('W')).toEqual([-5,0])
   })
+
+  it('does not move at all if southy diagonal move cannot be completed', function() {
+    for(let i=0; i < 5; i++) {
+      robot.instruct('S')
+    }
+    expect(robot.instruct('SW')).toEqual([0,-5])
+    expect(robot.instruct('SE')).toEqual([0,-5])
+  })
 })
