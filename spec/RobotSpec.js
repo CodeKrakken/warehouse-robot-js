@@ -116,4 +116,8 @@ describe('robot', function() {
   it('returns an error if given invalid instructions', function() {
     expect(robot.instruct('Z')).toEqual('Invalid instruction.')
   })
+
+  it('responds to grab', function() {
+    expect(robot.grab).toBeDefined()
+  })
 })

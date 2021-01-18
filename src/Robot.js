@@ -44,4 +44,8 @@ Robot.prototype.move = function(directions) {
   })
 }
 
+Robot.prototype.grab =function() {
+
+}
+
 module.exports = Robot;
