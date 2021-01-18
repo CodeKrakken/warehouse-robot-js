@@ -88,4 +88,14 @@ describe('robot', function() {
     expect(robot.instruct('SW')).toEqual([0,-5])
     expect(robot.instruct('SE')).toEqual([0,-5])
   })
+
+  it('does not move at all if northy diagonal move cannot be completed', function() {
+    for(let i=0; i < 5; i++) {
+      robot.instruct('N')
+    }
+    expect(robot.instruct('NW')).toEqual([0,5])
+    expect(robot.instruct('NE')).toEqual([0,5])
+  })
+
+  
 })
