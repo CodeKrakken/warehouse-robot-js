@@ -104,4 +104,12 @@ describe('robot', function() {
     expect(robot.instruct('NE')).toEqual([5,0])
     expect(robot.instruct('SE')).toEqual([5,0])
   })
+
+  it('does not move at all if westy diagonal move cannot be completed', function() {
+    for(let i=0; i < 5; i++) {
+      robot.instruct('W')
+    }
+    expect(robot.instruct('NW')).toEqual([-5,0])
+    expect(robot.instruct('SW')).toEqual([-5,0])
+  })
 })
