@@ -16,16 +16,16 @@ function Robot(warehouse) {
 Robot.prototype.instruct = function(instruction) {
   if(this.directions.includes(instruction)) {
     instructions = instruction.split('')
-    if(this.try_move(instructions) === true) { this.move(instructions) }
+    if(this.tryMove(instructions) === true) { this.move(instructions) }
     return this.location
   } else if(instruction === 'G') {
-    return this.try_grab()
+    return this.tryGrab()
   } else {
     return 'Invalid instruction.'
   }  
 }
 
-Robot.prototype.try_move = function(directions) {
+Robot.prototype.tryMove = function(directions) {
   let location = this.location
   let response = true
   directions.forEach(function(direction) {
@@ -47,7 +47,7 @@ Robot.prototype.move = function(directions) {
   })
 }
 
-Robot.prototype.try_grab = function() {
+Robot.prototype.tryGrab = function() {
   crate = this.warehouse.crates.find(function(crate) { return crate })
   return crate // this is an array - needs to be a single value
 }
