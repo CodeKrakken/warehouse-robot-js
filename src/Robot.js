@@ -48,8 +48,8 @@ Robot.prototype.move = function(directions) {
 }
 
 Robot.prototype.try_grab = function() {
-  crate = this.warehouse.crates.filter(function(crate) { return crate })
-  return crate[0] // this is an array - needs to be a single value
+  crate = this.warehouse.crates.find(function(crate) { return crate })
+  return crate // this is an array - needs to be a single value
 }
 
 Robot.prototype.grab = function() {

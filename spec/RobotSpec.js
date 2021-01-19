@@ -123,7 +123,8 @@ describe('robot', function() {
 
   it('holds a crate once grabbed', function() {
     warehouse.crates = [crate]
-    crate.location = [0,1]
     expect(robot.instruct('G')).toEqual(crate)
   })
+
+  
 })
