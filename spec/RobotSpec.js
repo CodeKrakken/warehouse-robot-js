@@ -1,15 +1,13 @@
 'use strict';
 
-const Warehouse = require('../src/Warehouse');
-
 describe('robot', function() {
 
   const Robot = require('../src/Robot');
   let robot;
   let warehouse;
+  let crate;
 
   beforeEach(function() {
-    warehouse = new Warehouse;
     robot = new Robot(warehouse);
   })
   
@@ -119,5 +117,9 @@ describe('robot', function() {
 
   it('responds to grab', function() {
     expect(robot.grab).toBeDefined()
+  })
+
+  it('holds a crate once grabbed', function() {
+    expect(robot.instruct('G').toEqual(crate))
   })
 })
