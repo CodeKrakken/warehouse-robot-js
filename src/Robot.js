@@ -48,8 +48,9 @@ Robot.prototype.move = function(directions) {
 }
 
 Robot.prototype.tryGrab = function() {
-  crate = this.warehouse.crates.find(function(crate) { return crate })
-  return crate // this is an array - needs to be a single value
+  crate = this.warehouse.crates.find(crate => crate.location[0] === this.location[0] && crate.location[1] === this.location[1])
+  console.log(crate)
+  return (crate ? crate : 'No crate to grab.')
 }
 
 Robot.prototype.grab = function() {

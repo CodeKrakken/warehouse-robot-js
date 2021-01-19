@@ -10,7 +10,8 @@ describe('robot', function() {
   beforeEach(function() {
     warehouse = jasmine.createSpyObj('warehouse', ['crates'])
     robot = new Robot(warehouse);
-    crate = jasmine.createSpyObj('crate', ['update'])
+    crate = jasmine.createSpyObj('crate', ['update', 'location'])
+    warehouse.crates = [crate]
   })
   
   it('has a location', function() {
@@ -122,9 +123,13 @@ describe('robot', function() {
   })
 
   it('holds a crate once grabbed', function() {
-    warehouse.crates = [crate]
-    expect(robot.instruct('G')).toEqual(crate)
+    crate.location = [0,0]
+    // console.log(crate.location)
+    expect(robot.instruct('G')).toEqual(crate) // not sure this test quite works - come back to it
   })
 
-  
+  it('will not grab a crate if none present at robot location', function() {
+    crate.location = [0,1]
+    expect(robot.instruct('G')).toEqual('No crate to grab.')
+  })
 })
