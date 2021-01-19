@@ -125,6 +125,7 @@ describe('robot', function() {
   it('holds a crate once grabbed', function() {
     crate.location = [0,0]
     expect(robot.instruct('G')).toEqual(crate) // not sure this test quite works - come back to it
+    expect(warehouse.crates).toEqual([])
   })
 
   it('will not grab a crate if none present at robot location', function() {
