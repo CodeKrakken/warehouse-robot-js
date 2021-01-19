@@ -8,7 +8,9 @@ describe('robot', function() {
   let crate;
 
   beforeEach(function() {
+    warehouse = jasmine.createSpyObj('warehouse', ['crates'])
     robot = new Robot(warehouse);
+    crate = jasmine.createSpyObj('crate', ['update'])
   })
   
   it('has a location', function() {
@@ -120,6 +122,8 @@ describe('robot', function() {
   })
 
   it('holds a crate once grabbed', function() {
-    expect(robot.instruct('G').toEqual(crate))
+    warehouse.crates = [crate]
+    crate.location = [0,1]
+    expect(robot.instruct('G')).toEqual(crate)
   })
 })

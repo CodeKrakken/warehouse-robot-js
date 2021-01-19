@@ -1,4 +1,4 @@
-function Robot() {
+function Robot(warehouse) {
   this.location = [0,0]
   this.directions = [
     'N',
@@ -10,6 +10,7 @@ function Robot() {
     'SW',
     'SE'
   ]
+  this.warehouse = warehouse
 }
 
 Robot.prototype.instruct = function(instruction) {
@@ -17,6 +18,8 @@ Robot.prototype.instruct = function(instruction) {
     instructions = instruction.split('')
     if(this.try_move(instructions) === true) { this.move(instructions) }
     return this.location
+  } else if(instruction === 'G') {
+    return this.try_grab()
   } else {
     return 'Invalid instruction.'
   }  
@@ -44,7 +47,12 @@ Robot.prototype.move = function(directions) {
   })
 }
 
-Robot.prototype.grab =function() {
+Robot.prototype.try_grab = function() {
+  crate = this.warehouse.crates.filter(function(crate) { return crate })
+  return crate[0] // this is an array - needs to be a single value
+}
+
+Robot.prototype.grab = function() {
 
 }
 
