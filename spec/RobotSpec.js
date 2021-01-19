@@ -124,7 +124,6 @@ describe('robot', function() {
 
   it('holds a crate once grabbed', function() {
     crate.location = [0,0]
-    // console.log(crate.location)
     expect(robot.instruct('G')).toEqual(crate) // not sure this test quite works - come back to it
   })
 

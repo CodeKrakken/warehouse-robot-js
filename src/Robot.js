@@ -11,6 +11,7 @@ function Robot(warehouse) {
     'SE'
   ]
   this.warehouse = warehouse
+  this.crate
 }
 
 Robot.prototype.instruct = function(instruction) {
@@ -48,8 +49,8 @@ Robot.prototype.move = function(directions) {
 }
 
 Robot.prototype.grab = function() {
-  crate = this.warehouse.crates.find(crate => crate.location[0] === this.location[0] && crate.location[1] === this.location[1])
-  return (crate ? crate : 'No crate to grab.')
+  this.crate = this.warehouse.crates.find(crate => crate.location[0] === this.location[0] && crate.location[1] === this.location[1])
+  return (this.crate ? this.crate : 'No crate to grab.')
 }
 
 module.exports = Robot;
