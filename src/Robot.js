@@ -19,7 +19,7 @@ Robot.prototype.instruct = function(instruction) {
     if(this.tryMove(instructions) === true) { this.move(instructions) }
     return this.location
   } else if(instruction === 'G') {
-    return this.tryGrab()
+    return this.grab()
   } else {
     return 'Invalid instruction.'
   }  
@@ -47,14 +47,9 @@ Robot.prototype.move = function(directions) {
   })
 }
 
-Robot.prototype.tryGrab = function() {
-  crate = this.warehouse.crates.find(crate => crate.location[0] === this.location[0] && crate.location[1] === this.location[1])
-  console.log(crate)
-  return (crate ? crate : 'No crate to grab.')
-}
-
 Robot.prototype.grab = function() {
-
+  crate = this.warehouse.crates.find(crate => crate.location[0] === this.location[0] && crate.location[1] === this.location[1])
+  return (crate ? crate : 'No crate to grab.')
 }
 
 module.exports = Robot;
