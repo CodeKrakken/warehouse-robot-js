@@ -152,9 +152,10 @@ describe('robot', function() {
       expect(crate.update).toHaveBeenCalledWith([0,1])
     })
 
-    // it 'will return Dropped Crate message when instructed' do
-    //   expect(subject.instruct('D')).to eq 'Dropped crate gently.'
-    // end
+    it('will return Dropped Crate message when instructed', function() {
+      expect(robot.instruct('D')).toEqual('Dropped crate gently.') 
+    })
+    
 
     // it 'will not drop crate on another crate' do
     //   allow(warehouse).to receive(:occupied).and_return(true)

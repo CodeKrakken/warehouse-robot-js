@@ -64,6 +64,7 @@ Robot.prototype.grab = function() {
 
 Robot.prototype.tryDrop = function() {
   this.crate = null
+  return 'Dropped crate gently.'
 }
 
 module.exports = Robot;
