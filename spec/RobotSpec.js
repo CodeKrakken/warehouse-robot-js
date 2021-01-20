@@ -158,12 +158,6 @@ describe('robot', function() {
     })
     
     it('will not drop crate on another crate', function() {
-      crate2 = jasmine.createSpyObj('crate', ['update', 'location'])
-      crate2.location = [0,1]
-      warehouse.crates.push(crate2)
-      robot.instruct('N')
-      console.log(robot.location)
-      console.log(warehouse.crates)
       warehouse.occupied.and.returnValue(true);
       expect(robot.instruct('D')).toEqual('Cannot drop crate here.')
     })
