@@ -6,9 +6,10 @@ describe('robot', function() {
   let robot;
   let warehouse;
   let crate;
+  let crate2;
 
   beforeEach(function() {
-    warehouse = jasmine.createSpyObj('warehouse', ['crates'])
+    warehouse = jasmine.createSpyObj('warehouse', ['crates', 'occupied'])
     robot = new Robot(warehouse);
     crate = jasmine.createSpyObj('crate', ['update', 'location'])
     warehouse.crates = [crate]
@@ -156,13 +157,19 @@ describe('robot', function() {
       expect(robot.instruct('D')).toEqual('Dropped crate gently.') 
     })
     
-
-    // it 'will not drop crate on another crate' do
-    //   allow(warehouse).to receive(:occupied).and_return(true)
-    //   expect(subject.instruct('D')).to eq 'Cannot drop crate here.'
-    // end
+    it('will not drop crate on another crate', function() {
+      crate2 = jasmine.createSpyObj('crate', ['update', 'location'])
+      crate2.location = [0,1]
+      warehouse.crates.push(crate2)
+      robot.instruct('N')
+      console.log(robot.location)
+      console.log(warehouse.crates)
+      warehouse.occupied.and.returnValue(true);
+      expect(robot.instruct('D')).toEqual('Cannot drop crate here.')
+    })
 
     it('returns crate to warehouse inventory when dropped', function() {
+      expect(warehouse.crates).toEqual([])
       robot.instruct('D')
       expect(warehouse.crates).toEqual([crate])
     })

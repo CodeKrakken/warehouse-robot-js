@@ -63,7 +63,13 @@ Robot.prototype.grab = function() {
 }
 
 Robot.prototype.tryDrop = function() {
-  return (this.crate ? this.drop() : 'No crate to drop.')
+  if(this.warehouse.occupied(this.location)) {
+    return 'Cannot drop crate here.'
+  } else if(!this.crate) { 
+    return 'No crate to drop.'
+  } else {
+    return this.drop()
+  }
 }
 
 Robot.prototype.drop = function() {
