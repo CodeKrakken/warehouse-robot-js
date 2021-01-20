@@ -46,6 +46,7 @@ Robot.prototype.move = function(directions) {
     if(direction === 'E') { location[0]++ }
     if(direction === 'W') { location[0]-- }
   })
+  if(this.crate) { this.crate.update(this.location) }
 }
 
 Robot.prototype.tryGrab = function() {

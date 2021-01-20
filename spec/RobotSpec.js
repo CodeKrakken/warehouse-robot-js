@@ -142,5 +142,10 @@ describe('robot', function() {
     it('will not grab if holding a crate already', function() {
       expect(robot.instruct('G')).toEqual('Already holding crate.')
     })
+
+    it('updates crate location upon movement', function() {
+      robot.instruct('N')
+      expect(crate.update).toHaveBeenCalledWith([0,1])
+    })
   })
 })
