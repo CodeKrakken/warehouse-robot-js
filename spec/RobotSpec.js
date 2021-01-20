@@ -6,7 +6,6 @@ describe('robot', function() {
   let robot;
   let warehouse;
   let crate;
-  let crate2;
 
   beforeEach(function() {
     warehouse = jasmine.createSpyObj('warehouse', ['crates', 'occupied'])
