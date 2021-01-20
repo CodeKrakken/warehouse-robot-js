@@ -63,6 +63,10 @@ Robot.prototype.grab = function() {
 }
 
 Robot.prototype.tryDrop = function() {
+  return (this.crate ? this.drop() : 'No crate to drop.')
+}
+
+Robot.prototype.drop = function() {
   this.crate = null
   return 'Dropped crate gently.'
 }

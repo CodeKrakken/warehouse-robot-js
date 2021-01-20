@@ -133,9 +133,9 @@ describe('robot', function() {
     expect(robot.instruct('G')).toEqual('No crate to grab.')
   })
 
-//   it 'will not drop a crate when not holding one' do
-//   expect(subject.instruct('D')).to eq 'No crate to drop.'
-// end
+  it('will not drop a crate when not holding one', function() {
+    expect(robot.instruct('D')).toEqual('No crate to drop.')
+  })
 
   describe('when holding a crate', function() {
     beforeEach(function() {
