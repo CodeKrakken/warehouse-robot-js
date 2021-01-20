@@ -67,6 +67,7 @@ Robot.prototype.tryDrop = function() {
 }
 
 Robot.prototype.drop = function() {
+  this.warehouse.crates.push(this.crate)
   this.crate = null
   return 'Dropped crate gently.'
 }

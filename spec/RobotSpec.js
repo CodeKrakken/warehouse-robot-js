@@ -162,11 +162,11 @@ describe('robot', function() {
     //   expect(subject.instruct('D')).to eq 'Cannot drop crate here.'
     // end
 
-  //   it 'returns crate to warehouse inventory when dropped' do
-  //   subject.instruct('D')
-  //   expect(warehouse.crates).to have_received(:push)
-  // end
-
+    it('returns crate to warehouse inventory when dropped', function() {
+      robot.instruct('D')
+      expect(warehouse.crates).toEqual([crate])
+    })
+ 
     it('will drop the crate it is holding when instructed', function() {
       expect(robot.crate).toEqual(crate)
       robot.instruct('D')
