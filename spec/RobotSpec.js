@@ -133,6 +133,10 @@ describe('robot', function() {
     expect(robot.instruct('G')).toEqual('No crate to grab.')
   })
 
+//   it 'will not drop a crate when not holding one' do
+//   expect(subject.instruct('D')).to eq 'No crate to drop.'
+// end
+
   describe('when holding a crate', function() {
     beforeEach(function() {
       crate.location = [0,0]
@@ -146,6 +150,26 @@ describe('robot', function() {
     it('updates crate location upon movement', function() {
       robot.instruct('N')
       expect(crate.update).toHaveBeenCalledWith([0,1])
+    })
+
+    // it 'will return Dropped Crate message when instructed' do
+    //   expect(subject.instruct('D')).to eq 'Dropped crate gently.'
+    // end
+
+    // it 'will not drop crate on another crate' do
+    //   allow(warehouse).to receive(:occupied).and_return(true)
+    //   expect(subject.instruct('D')).to eq 'Cannot drop crate here.'
+    // end
+
+  //   it 'returns crate to warehouse inventory when dropped' do
+  //   subject.instruct('D')
+  //   expect(warehouse.crates).to have_received(:push)
+  // end
+
+    it('will drop the crate it is holding when instructed', function() {
+      expect(robot.crate).toEqual(crate)
+      robot.instruct('D')
+      expect(robot.crate).toBeNull()
     })
   })
 })

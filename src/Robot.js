@@ -21,6 +21,8 @@ Robot.prototype.instruct = function(instruction) {
     return this.location
   } else if(instruction === 'G') {
     return this.tryGrab()
+  } else if(instruction === 'D') {
+    return this.tryDrop()
   } else {
     return 'Invalid instruction.'
   }  
@@ -58,6 +60,10 @@ Robot.prototype.tryGrab = function() {
 Robot.prototype.grab = function() {
   this.warehouse.crates = this.warehouse.crates.filter(crate => crate !== this.crate)
   return this.crate
+}
+
+Robot.prototype.tryDrop = function() {
+  this.crate = null
 }
 
 module.exports = Robot;
