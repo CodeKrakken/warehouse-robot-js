@@ -54,9 +54,7 @@ Robot.prototype.tryGrab = function() {
 }
 
 Robot.prototype.grab = function() {
-  this.warehouse.crates.filter(crate => crate.location[0] !== this.location[0] && crate.location[1] !== this.location[1])
-  console.log(this.warehouse.crates)
-  console.log(this.location)
+  this.warehouse.crates = this.warehouse.crates.filter(crate => crate !== this.crate)
   return this.crate
 }
 
