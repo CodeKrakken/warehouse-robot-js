@@ -132,4 +132,15 @@ describe('robot', function() {
     crate.location = [0,1]
     expect(robot.instruct('G')).toEqual('No crate to grab.')
   })
+
+  describe('when holding a crate', function() {
+    beforeEach(function() {
+      crate.location = [0,0]
+      robot.instruct('G')
+    })
+
+    it('will not grab if holding a crate already', function() {
+      expect(robot.instruct('G')).toEqual('Already holding crate.')
+    })
+  })
 })
