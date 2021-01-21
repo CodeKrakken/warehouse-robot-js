@@ -17,6 +17,7 @@ crate
 crate2
 crate3
 robot
+warehouse
 
 // warehouse receive crates
 
