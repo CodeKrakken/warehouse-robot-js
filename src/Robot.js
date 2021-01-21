@@ -14,9 +14,7 @@ function Robot(warehouse) {
 }
 
 Robot.prototype.instruct = function(instruction) {
-  if(Object.keys(this.directions).includes(instruction)) {
-    return this.tryMove(instruction)
-  } 
+  if(Object.keys(this.directions).includes(instruction)) { return this.tryMove(instruction) } 
   if(instruction === 'G') { return this.tryGrab() } 
   if(instruction === 'D') { return this.tryDrop() }
   return 'Invalid instruction.'
@@ -24,14 +22,12 @@ Robot.prototype.instruct = function(instruction) {
 
 Robot.prototype.tryMove = function(direction) {
   if(Math.abs(this.location[0] + this.directions[direction][0]) <= 5 
-  && Math.abs(this.location[1] + this.directions[direction][1]) <= 5) {
-    this.move(direction)
-  }
+  && Math.abs(this.location[1] + this.directions[direction][1]) <= 5) { this.move(direction) }
   return this.location 
 }
 
 Robot.prototype.move = function(direction) {
-  this.location = this.location.map(function(location,change) { 
+  this.location = this.location.map(function(location,change) {
     return location + this[change]
   }, this.directions[direction])
   if(this.crate) { this.crate.update(this.location.slice(0)) }
