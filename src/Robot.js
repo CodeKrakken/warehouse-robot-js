@@ -27,11 +27,8 @@ Robot.prototype.instruct = function(instruction) {
 }
 
 Robot.prototype.tryMove = function(direction) {
-  if(Math.abs(this.location[0] + this.directions[direction][0]) <= 5 && Math.abs(this.location[1] + this.directions[direction][1]) <= 5) {
-    return true
-  } else {
-    return false
-  }
+  return Math.abs(this.location[0] + this.directions[direction][0]) <= 5 
+      && Math.abs(this.location[1] + this.directions[direction][1]) <= 5
 }
 
 Robot.prototype.move = function(direction) {
