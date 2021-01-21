@@ -32,13 +32,17 @@ Robot.prototype.tryMove = function(direction) {
 }
 
 Robot.prototype.move = function(direction) {
-  this.location = this.location.map(function(location,change) { return location + this[change]}, this.directions[direction])
+  this.location = this.location.map(function(location,change) { 
+    return location + this[change]
+  }, this.directions[direction])
   if(this.crate) { this.crate.update(this.location.slice(0)) }
 }
 
 Robot.prototype.tryGrab = function() {
   if(this.crate) { return 'Already holding crate.' }
-  this.crate = this.warehouse.crates.find(crate => crate.location[0] === this.location[0] && crate.location[1] === this.location[1])
+  this.crate = this.warehouse.crates.find(
+    crate => crate.location[0, 1] === this.location[0, 1] 
+    )
   return (this.crate ? this.grab() : 'No crate to grab.')
 }
 
@@ -48,13 +52,9 @@ Robot.prototype.grab = function() {
 }
 
 Robot.prototype.tryDrop = function() {
-  if(this.warehouse.occupied(this.location)) {
-    return 'Cannot drop crate here.'
-  } else if(!this.crate) { 
-    return 'No crate to drop.'
-  } else {
-    return this.drop()
-  }
+  if(this.warehouse.occupied(this.location)) { return 'Cannot drop crate here.' }
+  if(!this.crate) { return 'No crate to drop.' }
+  return this.drop()
 }
 
 Robot.prototype.drop = function() {
