@@ -35,7 +35,7 @@ describe('Warehouse', function() {
     expect(crate.update).toHaveBeenCalled()
   })
 
-  it('will note receive a crate if already in crates array', function() {
+  it('will not receive a crate if already in crates array', function() {
     warehouse.receive(crate, 0, 0)
     expect(warehouse.receive(crate, 0, 1)).toEqual('Crate already in warehouse.')
   })
@@ -43,5 +43,10 @@ describe('Warehouse', function() {
   it('will not receive crate in same location as existing one', function() {
     warehouse.receive(crate, 0, 0)
     expect(warehouse.receive(crate2, 0, 0)).toEqual('Position occupied.')
+  })
+
+  it('can identify whether a space is occupied', function() {
+     warehouse.receive(crate, 0, 0)
+     expect(warehouse.occupied(0,0)).toEqual(true)
   })
 })
