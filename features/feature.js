@@ -1,8 +1,8 @@
 // get files
 
-const Robot = require('../src/Robot')
-const Warehouse = require('../src/Warehouse')
-const Crate = require('../src/Crate')
+const Robot = require('./src/Robot')
+const Warehouse = require('./src/Warehouse')
+const Crate = require('./src/Crate')
 
 // create instances
 let warehouse = new Warehouse()
@@ -87,7 +87,9 @@ robot.instruct('G')
 
 // robot drop function
 
-robot.crate
+console.log(warehouse.crates)
+console.log(robot.location)
+console.log(warehouse.occupied(robot.location))
 robot.instruct('D')
 robot.crate
 robot.instruct('N')

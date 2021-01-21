@@ -7,7 +7,7 @@ Warehouse.prototype.receive = function(crate, xAxis, yAxis) {
   if(this.crates.includes(crate)) {
     return 'Crate already in warehouse.' 
   }
-  if(this.occupied(xAxis, yAxis)) {
+  if(this.occupied([xAxis, yAxis])) {
     return 'Position occupied.'
   }
   this.crates.push(crate)
@@ -15,7 +15,7 @@ Warehouse.prototype.receive = function(crate, xAxis, yAxis) {
   return this.crates
 }
 
-Warehouse.prototype.occupied = function(xAxis, yAxis) {
+Warehouse.prototype.occupied = function([xAxis, yAxis]) {
   let response
   this.crates.forEach(function(crate) {
     response = (crate.location[0] == xAxis && crate.location[1] == yAxis)

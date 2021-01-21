@@ -47,6 +47,6 @@ describe('Warehouse', function() {
 
   it('can identify whether a space is occupied', function() {
      warehouse.receive(crate, 0, 0)
-     expect(warehouse.occupied(0,0)).toEqual(true)
+     expect(warehouse.occupied([0,0])).toEqual(true)
   })
 })
