@@ -1,8 +1,8 @@
 // get files
 
-const Robot = require('../src/Robot')
-const Warehouse = require('../src/Warehouse')
-const Crate = require('../src/Crate')
+const Robot = require('./src/Robot')
+const Warehouse = require('./src/Warehouse')
+const Crate = require('./src/Crate')
 
 // create instances
 let warehouse = new Warehouse()

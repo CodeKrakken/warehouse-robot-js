@@ -1,23 +1,21 @@
 function Robot(warehouse) {
   this.location = [0,0]
-  this.directions = [
-    'N',
-    'S',
-    'E',
-    'W',
-    'NW',
-    'NE',
-    'SW',
-    'SE'
-  ]
+  this.directions = {
+    'N': [0, 1],
+    'E': [1, 0],
+    'S': [0,-1],
+    'W': [-1,0],
+    'NW': [-1,1],
+    'NE': [1,1],
+    'SW': [-1,-1],
+    'SE': [1,-1],
+  }
   this.warehouse = warehouse
-  this.crate
 }
 
 Robot.prototype.instruct = function(instruction) {
-  if(this.directions.includes(instruction)) {
-    instructions = instruction.split('')
-    if(this.tryMove(instructions) === true) { this.move(instructions) }
+  if(Object.keys(this.directions).includes(instruction)) {
+    if(this.tryMove(instruction) === true) { this.move(instruction) }
     return this.location
   } else if(instruction === 'G') {
     return this.tryGrab()
@@ -28,26 +26,16 @@ Robot.prototype.instruct = function(instruction) {
   }  
 }
 
-Robot.prototype.tryMove = function(directions) {
-  let location = this.location
-  let response = true
-  directions.forEach(function(direction) {
-    if(direction === 'N' && location[1]+1 > 5) { response = false }
-    if(direction === 'E' && location[0]+1 > 5) { response = false }
-    if(direction === 'S' && Math.abs(location[1]-1) > 5) { response = false }
-    if(direction === 'W' && Math.abs(location[0]-1) > 5) { response = false }
-  })
-  return response
+Robot.prototype.tryMove = function(direction) {
+  if(Math.abs(this.location[0] + this.directions[direction][0]) <= 5 && Math.abs(this.location[1] + this.directions[direction][1]) <= 5) {
+    return true
+  } else {
+    return false
+  }
 }
 
-Robot.prototype.move = function(directions) {
-  let location = this.location
-  directions.forEach(function(direction) {
-    if(direction === 'N') { location[1]++ }
-    if(direction === 'S') { location[1]-- }
-    if(direction === 'E') { location[0]++ }
-    if(direction === 'W') { location[0]-- }
-  })
+Robot.prototype.move = function(direction) {
+  this.location = this.location.map(function(location,change) { return location + this[change]}, this.directions[direction])
   if(this.crate) { this.crate.update(this.location.slice(0)) }
 }
 

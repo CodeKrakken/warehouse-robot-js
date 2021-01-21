@@ -3,6 +3,7 @@
 function Crate() {
 
   this.location = [];
+
 }
 
 Crate.prototype.update = function(location) {

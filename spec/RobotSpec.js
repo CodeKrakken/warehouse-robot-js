@@ -50,7 +50,7 @@ describe('robot', function() {
     expect(robot.instruct('SE')).toEqual([1,-1])
   })
 
-  it('moves one space northwest when instruct("SW") is called', function() {
+  it('moves one space southwest when instruct("SW") is called', function() {
     expect(robot.instruct('SW')).toEqual([-1,-1])
   })
 
