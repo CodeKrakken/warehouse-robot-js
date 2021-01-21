@@ -17,9 +17,7 @@ Warehouse.prototype.store = function(crate, xAxis, yAxis) {
 
 Warehouse.prototype.occupied = function([xAxis, yAxis]) {
   let response
-  this.crates.forEach(function(crate) {
-    response = (crate.location[0] == xAxis && crate.location[1] == yAxis)
-  })
+  this.crates.forEach(function(crate) { response = (crate.location[0] == xAxis && crate.location[1] == yAxis) })
   return response
 }
 
