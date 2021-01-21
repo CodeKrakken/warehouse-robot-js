@@ -17,13 +17,11 @@ Robot.prototype.instruct = function(instruction) {
   if(Object.keys(this.directions).includes(instruction)) {
     if(this.tryMove(instruction)) { this.move(instruction) }
     return this.location
-  } else if(instruction === 'G') {
-    return this.tryGrab()
-  } else if(instruction === 'D') {
-    return this.tryDrop()
-  } else {
-    return 'Invalid instruction.'
-  }  
+  } 
+  if(instruction === 'G') { return this.tryGrab() } 
+  if(instruction === 'D') { return this.tryDrop() }
+  return 'Invalid instruction.'
+    
 }
 
 Robot.prototype.tryMove = function(direction) {
