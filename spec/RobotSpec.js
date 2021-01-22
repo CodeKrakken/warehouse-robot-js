@@ -55,61 +55,45 @@ describe('robot', function() {
   })
 
   it('will not move outside warehouse north wall', function() {
-    for(let i=0; i < 5; i++) {
-      robot.instruct('N')
-    }
+    for(let i=0; i < 5; i++) { robot.instruct('N') }
     expect(robot.instruct('N')).toEqual([0,5])
   })
 
   it('will not move outside warehouse east wall', function() {
-    for(let i=0; i < 5; i++) {
-      robot.instruct('E')
-    }
+    for(let i=0; i < 5; i++) { robot.instruct('E') }
     expect(robot.instruct('E')).toEqual([5,0])
   })
 
   it('will not move outside warehouse south wall', function() {
-    for(let i=0; i < 5; i++) {
-      robot.instruct('S')
-    }
+    for(let i=0; i < 5; i++) { robot.instruct('S') }
     expect(robot.instruct('S')).toEqual([0,-5])
   })
 
   it('will not move outside west wall', function() {
-    for(let i=0; i < 5; i++) {
-      robot.instruct('W')
-    }
+    for(let i=0; i < 5; i++) { robot.instruct('W') }
     expect(robot.instruct('W')).toEqual([-5,0])
   })
 
   it('does not move at all if southy diagonal move cannot be completed', function() {
-    for(let i=0; i < 5; i++) {
-      robot.instruct('S')
-    }
+    for(let i=0; i < 5; i++) { robot.instruct('S') }
     expect(robot.instruct('SW')).toEqual([0,-5])
     expect(robot.instruct('SE')).toEqual([0,-5])
   })
 
   it('does not move at all if northy diagonal move cannot be completed', function() {
-    for(let i=0; i < 5; i++) {
-      robot.instruct('N')
-    }
+    for(let i=0; i < 5; i++) { robot.instruct('N') }
     expect(robot.instruct('NW')).toEqual([0,5])
     expect(robot.instruct('NE')).toEqual([0,5])
   })
 
   it('does not move at all if easty diagonal move cannot be completed', function() {
-    for(let i=0; i < 5; i++) {
-      robot.instruct('E')
-    }
+    for(let i=0; i < 5; i++) { robot.instruct('E') }
     expect(robot.instruct('NE')).toEqual([5,0])
     expect(robot.instruct('SE')).toEqual([5,0])
   })
 
   it('does not move at all if westy diagonal move cannot be completed', function() {
-    for(let i=0; i < 5; i++) {
-      robot.instruct('W')
-    }
+    for(let i=0; i < 5; i++) { robot.instruct('W') }
     expect(robot.instruct('NW')).toEqual([-5,0])
     expect(robot.instruct('SW')).toEqual([-5,0])
   })
@@ -124,7 +108,7 @@ describe('robot', function() {
 
   it('holds a crate once grabbed', function() {
     crate.location = [0,0]
-    expect(robot.instruct('G')).toEqual(crate) // not sure this test quite works - come back to it
+    expect(robot.instruct('G')).toEqual(crate)
     expect(warehouse.crates).toEqual([])
   })
 

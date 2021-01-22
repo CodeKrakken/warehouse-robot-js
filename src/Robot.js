@@ -35,7 +35,8 @@ Robot.prototype.move = function(direction) {
 
 Robot.prototype.tryGrab = function() {
   if(this.crate) { return 'Already holding crate.' }
-  this.crate = this.warehouse.crates.find(crate => crate.location[0] === this.location[0] && crate.location[1] === this.location[1])
+  this.crate = this.warehouse.crates.find(crate => 
+    crate.location[0] === this.location[0] && crate.location[1] === this.location[1])
   return (this.crate ? this.grab() : 'No crate to grab.')
 }
 
