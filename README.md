@@ -1,4 +1,4 @@
-# warehouse_robot
+# WarehouseRobot
 
 Modelling the actions of a hardworking warehouse robot, very much of the ilk of T.O.M. from TV's Bertha. See the original Ruby version ![here](https://github.com/CodeKrakken/warehouse-robot.git).
 
