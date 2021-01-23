@@ -13,7 +13,7 @@ function Game() {
 }
 
 Game.prototype.run = function() {
-  this.rl = Readline.createInterface({
+  this.interface = Readline.createInterface({
     input: process.stdin,
     output: process.stdout
   });
@@ -22,7 +22,7 @@ Game.prototype.run = function() {
 
 Game.prototype.getCommand = function() {
   game = this
-  this.rl.question("\nCOMMAND THE ROBOT.\n\n", function(instruction) {
+  this.interface.question("\nCOMMAND THE ROBOT.\n\n", function(instruction) {
     let instructions = instruction.split(' ')
     game.execute(instructions)
   });
@@ -32,7 +32,7 @@ Game.prototype.execute = function(instructions) {
   instructions.forEach(function(instruction) {
     console.log(`\n${game.robot.instruct(instruction)}`)
   })
-  this.rl.close()
+  this.interface.close()
   this.run()
 }
 
