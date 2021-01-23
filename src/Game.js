@@ -24,12 +24,16 @@ Game.prototype.getCommand = function() {
   game = this
   this.rl.question("\nCOMMAND THE ROBOT.\n\n", function(instruction) {
     let instructions = instruction.split(' ')
-    instructions.forEach(function(instruction) {
-      console.log(`\n${game.robot.instruct(instruction)}`)
-      game.rl.close()
-      game.run()
-    })
+    game.execute(instructions)
   });
+}
+
+Game.prototype.execute = function(instructions) {
+  instructions.forEach(function(instruction) {
+    console.log(`\n${game.robot.instruct(instruction)}`)
+  })
+  this.rl.close()
+  this.run()
 }
 
 module.exports = Game
