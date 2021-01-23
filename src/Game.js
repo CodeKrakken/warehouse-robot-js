@@ -13,11 +13,15 @@ function Game() {
 }
 
 Game.prototype.run = function() {
-  game = this
   this.rl = Readline.createInterface({
     input: process.stdin,
     output: process.stdout
   });
+  this.getCommand()
+}
+
+Game.prototype.getCommand = function() {
+  game = this
   this.rl.question("\nCOMMAND THE ROBOT.\n\n", function(instruction) {
     let instructions = instruction.split(' ')
     instructions.forEach(function(instruction) {
