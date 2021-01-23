@@ -1,6 +1,7 @@
 const Crate = require('./Crate')
 const Warehouse = require('./Warehouse')
 const Robot = require('./Robot')
+const Readline = require('readline');
 
 function Game() {
   this.warehouse = new Warehouse()
@@ -12,21 +13,19 @@ function Game() {
 }
 
 Game.prototype.run = function() {
-  let game = this
-  const readline = require('readline');
-  const rl = readline.createInterface({
+  game = this
+  this.rl = Readline.createInterface({
     input: process.stdin,
     output: process.stdout
-  });  
-  rl.question("\nCOMMAND THE ROBOT.\n\n", function(instruction) {
+  });
+  this.rl.question("\nCOMMAND THE ROBOT.\n\n", function(instruction) {
     let instructions = instruction.split(' ')
     instructions.forEach(function(instruction) {
       console.log(`\n${game.robot.instruct(instruction)}`)
-      rl.close()
+      game.rl.close()
       game.run()
     })
   });
 }
-
 
 module.exports = Game
