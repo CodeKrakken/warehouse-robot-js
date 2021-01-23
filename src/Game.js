@@ -13,20 +13,19 @@ function Game() {
 
 Game.prototype.run = function() {
   let game = this
-  var readline = require('readline');
-  var rl = readline.createInterface({
+  const readline = require('readline');
+  const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
+  });  
+  rl.question("\nCOMMAND THE ROBOT.\n\n", function(instruction) {
+    let instructions = instruction.split(' ')
+    instructions.forEach(function(instruction) {
+      console.log(`\n${game.robot.instruct(instruction)}`)
+      rl.close()
+      game.run()
+    })
   });
-  for(;;) {
-    rl.question("\nCOMMAND THE ROBOT.\n\n", async function(instruction) {
-      let instructions = instruction.split(' ')
-      await instructions.forEach(function(instruction) {
-        console.log(`\n${game.robot.instruct(instruction)}`)
-      })
-      rl.close();
-    });
-  }
 }
 
 
