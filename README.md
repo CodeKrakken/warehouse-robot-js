@@ -42,3 +42,7 @@ Program runs in the command line. Start it with `node rungame.js`. Initially the
 ## Testing
 
 This was built with TDD. Run the tests with `npm test`.
+
+## Screenshot
+
+![warehouse-robot-js](https://user-images.githubusercontent.com/52076323/105580164-9d3bb680-5d82-11eb-9977-405fac88a37e.png)
